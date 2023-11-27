@@ -14,9 +14,14 @@ function counter(state = initialState, action) {
       return {
         number: state.number + 1,
       };
-      break;
+    case DECREASE:
+      return {
+        number: state.number - 1,
+      };
 
     default:
-      break;
+      return state;
   }
 }
+
+export default counter;
