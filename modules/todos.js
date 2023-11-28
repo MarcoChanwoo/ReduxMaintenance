@@ -28,3 +28,34 @@ export const remove = (id) => ({
   type: REMOVE,
   id,
 });
+
+const initialState = {
+  input: '',
+  todos: [
+    {
+      id: 1,
+      text: '리덕스 기초 학습',
+      done: true,
+    },
+    {
+      id: 2,
+      text: '리액트와 리덕스 활용',
+      done: false,
+    },
+  ],
+};
+
+function todos(state = initialState, action) {
+  switch (action.type) {
+    case CHANGE_INPUT:
+      return {
+        ...state,
+        input: action.input,
+      };
+    case INSERT:
+      return {
+        ...state,
+        todos: state.todos.concat(action.todo),
+      };
+  }
+}
